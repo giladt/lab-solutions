@@ -5,14 +5,11 @@ import users from './users';
 
 class App extends React.Component {
 
-  constructor() {
-    super();
-    this.state = {
-      search: '',
-      student: true,
-      teacher: true,
-      campus: ''
-    }
+  state = {
+    search: '',
+    student: true,
+    teacher: true,
+    campus: ''
   }
 
   handleInputChange = e => {
@@ -26,15 +23,17 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state);
+
     const options = [...new Set(users.map(user => user.campus))].map(campus => {
       return <option value={campus} key={campus}>{campus}</option>
     });
+
     const filteredUsers = users.filter(user => {
       return this.state[user.role]
-        && `${user.firstName}${user.lastName}`.toLowerCase().includes(this.state.search.toLowerCase())
+        && 'user.firstName + user.lastName'.toLowerCase().includes(this.state.search.toLowerCase())
         && (user.campus === this.state.campus || !this.state.campus);
     });
+
     const usersList = filteredUsers.map(user => {
       return <tr key={user.id}>
         <td>{user.firstName}</td>
