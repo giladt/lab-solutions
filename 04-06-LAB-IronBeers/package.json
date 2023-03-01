@@ -12,7 +12,7 @@
   "dependencies": {
     "exphbs": "^1.2.0",
     "express": "^4.16.3",
-    "hbs": "^4.0.1",
+    "hbs": "^4.2.0",
     "punkapi-javascript-wrapper": "^1.0.2"
   }
 }
